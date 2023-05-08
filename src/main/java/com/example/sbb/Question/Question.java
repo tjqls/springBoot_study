@@ -32,7 +32,7 @@ public class Question {
 
     @OneToMany(mappedBy="question",cascade = CascadeType.REMOVE)
     private List<Answer> answerList;
-    // Answer 엔티티 객체로 구성된 answerList를 속성을 추가하고 @OnewToMany 애너테이션을 설정했다.
+    // Answer 엔티티 객체로 구성된 answerList를 속성을 추가하고 @OneToMany 애너테이션을 설정했다.
     // 이제 질문 객체에서 답변을 참조하려면 question.getAnswerList()를 호출하면 된다.
     //@OneToMany 애너테이션에 사용된 mappedBy는 참조 엔티티의 속성명을 의미한다.
     // 즉, Answer엔티티에서 Question 엔티티를 참조한 속성명 question을 mappedBy에 전달해야 한다.
