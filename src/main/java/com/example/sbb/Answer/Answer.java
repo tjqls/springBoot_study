@@ -2,11 +2,13 @@ package com.example.sbb.Answer;
 
 
 import com.example.sbb.Question.Question;
+import com.example.sbb.user.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -36,4 +38,11 @@ public class Answer {
     // → answer.getQuestion().getSubject()처럼 접근할 수 있다.
     // 하지만 이렇게 속성만 추가하면 안되고 질문 엔티티와 연결된 속성이라는 것을 명시적으로 표시해야 한다.
 
+    @ManyToOne
+    private SiteUser author;
+
+    private LocalDateTime modifyDate;
+
+    @ManyToMany
+    Set<SiteUser> voter;
 }

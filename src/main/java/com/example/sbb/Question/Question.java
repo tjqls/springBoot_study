@@ -2,8 +2,10 @@ package com.example.sbb.Question;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import com.example.sbb.Answer.Answer;
+import com.example.sbb.user.SiteUser;
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -36,4 +38,12 @@ public class Question {
     // 이제 질문 객체에서 답변을 참조하려면 question.getAnswerList()를 호출하면 된다.
     //@OneToMany 애너테이션에 사용된 mappedBy는 참조 엔티티의 속성명을 의미한다.
     // 즉, Answer엔티티에서 Question 엔티티를 참조한 속성명 question을 mappedBy에 전달해야 한다.
+
+    @ManyToOne
+    private SiteUser author;
+
+    private LocalDateTime modifyDate;
+
+    @ManyToMany
+    Set<SiteUser> voter;
 }
